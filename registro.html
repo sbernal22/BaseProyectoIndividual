@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Ir a inicio</a></li>
+                <li><a href="inicioSesion.html">Iniciar sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form>
+            <fieldset>
+                <legend>Registrarse</legend>
+                <label for="nombres">Nombres</label>
+                <input type="text" id="nombres" name="nombres" placeholder="ej: Sebastian Colen" required>
+                <br><br>
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" placeholder="ej: Bernal Neyra" required>
+                <br><br>
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" name="correo" placeholder="ej: ejemplo@gmail.com" required>
+                <br><br>
+                <label for="contraseña">Contraseña</label>
+                <input type="password" id="contraseña" name="contraseña" required>
+                <br><br>
+                <label for="confirmar">Confirmar contraseña</label>
+                <input type="password" id="confirmar" name="confirmar" required>
+                <br><br>
+                <label for="fecha">Fecha de nacimiento</label>
+                <input type="date" id="fecha" name="fecha" required>
+                <br><br>
+                <label>Género:</label>
+                <input type="radio" id="masc" name="genero" value="M">
+                <label for="masc">Masculino</label>
+                <input type="radio" id="fem" name="genero" value="F">
+                <label for="fem">Femenino</label>
+                <br><br>
+                <label>
+                    <input type="checkbox" name="terminos" required>
+                    Acepto los terminos y condiciones
+                </label>
+                <br><br>
+                <button type="submit">Registrarse</button>
+                <button type="reset">Restablecer</button>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>
