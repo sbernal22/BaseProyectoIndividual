@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Tienda online</title>
 </head>
 <body>
     <header>
-        <button type="button"><a href="registro.html">Registrarse</a></button>
-        <button type="button"><a href="inicioSesion.html">Iniciar sesion</a></button>
-        <h1 id="inicio">Ventas Online</h1>
+        <div>
+            <button type="button"><a href="registro.html">Registrarse</a></button>
+            <button type="button"><a href="inicioSesion.html">Iniciar sesion</a></button>
+        </div>
+        <h1 id="inicio">Tienda Online</h1>
         <p>Una tienda virtual de articulos tecnológicos</p>
         <details>
             <summary>Donde puedes encontrar:</summary>
@@ -36,9 +39,10 @@
     <hr>
     
     <main>
+        <h2><strong>Lo más vendido:</strong></h2>
         <!-- Articulo 1 -->
         <article id="art1">
-            <h2><strong>Laptop Lenovo</strong></h2>
+            <h3><strong>Laptop Lenovo</strong></h3>
             <table border="1">
                 <tr>
                     <th>Precio</th>
@@ -57,11 +61,12 @@
                 <img src="https://p1-ofp.static.pub/fes/cms/2021/12/17/ephit8bi4waypyhk5ayf20s55uhtf3918030.png" alt="Laptop Lenovo" width="300" height="250">
                 <figcaption>Imagen de laptop Lenovo</figcaption>
             </figure>
+            <button type="button">Comprar</button>
         </article>
         <hr>
         <!-- Articulo 2 -->
         <article id="art2">
-            <h2><strong>Smartphone Honor 400</strong></h2>
+            <h3><strong>Smartphone Honor 400</strong></h3>
             <table border="1">
                 <tr>
                     <th>Precio</th>
@@ -80,12 +85,13 @@
                 <img src="images/honor.jpg" alt="Smartphone Honor" width="280" height="300">
                 <figcaption>Imagen del Honor</figcaption>
             </figure>
+            <button type="button">Comprar</button>
         </article>
         <hr>
 
         <!-- Articulo 3 -->
         <article id="art3">
-            <h2><strong>Smartwatch impermeable</strong></h2>
+            <h3><strong>Smartwatch impermeable</strong></h3>
             <table border="1">
                 <tr>
                     <th>Precio</th>
@@ -104,11 +110,12 @@
                 <img src="https://i5.walmartimages.com/seo/Smart-Watch-Fits-for-Android-and-iPhone-EEEkit-Fitness-Health-Tracker-Waterproof-Smartwatch-for-Women-Men_819cb65b-8437-4eb3-aba1-ce6513dc8d58.312f5775b50ab18c130fe5a454149fa9.jpeg" alt="Smartwatch" width="300" height="300">
                 <figcaption>Imagen del Smartwatch</figcaption>
             </figure>
+            <button type="button">Comprar</button>
         </article>
         <hr>
         <!-- Articulo 3 -->
         <article id="art4">
-            <h2><strong>Tablet Samsung Galaxy</strong></h2>
+            <h3><strong>Tablet Samsung Galaxy</strong></h3>
             <table border="1">
                 <tr>
                     <th>Precio</th>
@@ -123,16 +130,18 @@
                     <th>2 días</th>
                 </tr>
             </table>
-        </article>
-        <figure>        
+            <figure>        
             <img src="https://media.falabella.com/falabellaPE/129061914_01/w=1500,h=1500,fit=pad" alt="Tablet Samsung" width="300" height="300">
             <figcaption>Imagen de la tablet</figcaption>
-        </figure>
+            </figure>
+            <button type="button">Comprar</button>
+        </article>
+        
+        <a href="#inicio"><h2>Ir a inicio</h2></a>
     </main>
     <hr>
     <footer>
-        <p> &copy; 2025 Mi pagina web individual</p>
+        <p id="ultimoParrafo"> &copy; 2025 Mi pagina web individual</p>
     </footer>
-    <a href="#inicio"><h2>Ir a inicio</h2></a>
 </body>
 </html>
