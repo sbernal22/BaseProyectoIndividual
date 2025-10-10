@@ -1,33 +1,63 @@
 body{
     background-color: rgb(218, 218, 218);
-    padding: 10px;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: relative;
 }
-h1{
-    text-decoration: underline;
+
+header{
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    position: sticky;
+    background-color: red;
+    top: 0;
 }
-h2{
-    text-decoration: underline;
+
+nav{
+    padding-top: 15px;
 }
-h3::before{
-    content: ">>>";
+
+summary{
+    cursor: pointer;
+    font-size: 24px;
+    list-style: none;
 }
+
+ul{
+    list-style: none;
+}
+li::before{
+    content: ">";
+    margin-right: 5px;
+}
+#menu::before {
+  content: '☰ '; /* Icono hamburguesa */
+  margin-right: 5px;
+}
+
+main{
+    margin: 10px;
+}
+
+h2{text-decoration: underline}
+
+h3::before{content: ">>>"}
+
 a{
     text-decoration: none;
     color: blue;
 }
-a:hover{
-    color: lightblue;
-}
-a:active{
-    color: darkblue;
-}
-details:hover{
-    cursor: pointer;
-}
+
+a:hover{color: lightblue}
+
+a:active{color: darkblue}
+
 img{
     border: 3px solid black;
     background-color: white;
 }
+
 figure + button{
     background-color: rgb(0, 179, 0);
     color: rgb(244, 244, 244);
@@ -37,6 +67,7 @@ figure + button{
     margin: 10px;
 }
 
+
 div button{
     background-color: rgb(255, 0, 0);
     color: black;
@@ -44,26 +75,23 @@ div button{
     padding: 10px;
     margin: 10px;
 }
+
 figure + button:hover{
     background-color: lightgreen;
     cursor: pointer;
 }
+
 div button:hover{
     background-color: rgb(200, 0, 0);
     cursor: pointer;
 }
-button:active{
-    background-color: gray;
-}
-#botones{
-    text-align: right;
-}
-#subirinicio{
-    text-align: right;
-}
-#subirinicio::after{
-    content: "↑";
-}
-#ultimoParrafo{
-    text-align: center;
-}
+
+button:active{background-color: gray}
+
+#botones{text-align: right}
+
+#subirinicio{text-align: right}
+
+#subirinicio::after{content: "↑"}
+
+#ultimoParrafo{text-align: center}

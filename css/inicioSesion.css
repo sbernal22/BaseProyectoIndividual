@@ -13,6 +13,9 @@ button{
 button:hover{
     background-color: lightgreen;
 }
+button:active{
+    background-color: gray;
+}
 a{
     text-decoration: none;
 }
