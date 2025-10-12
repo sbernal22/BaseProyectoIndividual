@@ -24,10 +24,40 @@ summary{
     list-style: none;
 }
 
+.nombre_logo{display: flex}
+
+#logo{
+    padding: 15px;
+    padding-bottom: 5px;
+}
+
 ul{
     list-style: none;
 }
-li::before{
+
+.laterales{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#laterales{
+    display: flex;
+    gap: 30px;
+}
+
+.itemsLaterales{
+    background-color: black;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px gray;
+}
+.itemsLaterales a{
+    color: white;
+    font-weight: bold;
+}
+
+.menu::before{
     content: ">";
     margin-right: 5px;
 }
@@ -85,23 +115,16 @@ figure + button{
     margin: 10px;
 }
 
-
-div button{
-    background-color: rgb(255, 0, 0);
-    color: black;
-    box-shadow: 5px 5px 10px darkred;
-    padding: 10px;
-    margin: 10px;
-}
-
 figure + button:hover{
     background-color: lightgreen;
     cursor: pointer;
 }
 
-div button:hover{
-    background-color: rgb(200, 0, 0);
-    cursor: pointer;
+article{
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
 }
 
 button:active{background-color: gray}
@@ -121,3 +144,9 @@ button:active{background-color: gray}
 #subirinicio::after{content: "↑"}
 
 #ultimoParrafo{text-align: center}
+
+footer{
+    background-color: black;
+    color: white;
+    padding: 25px;
+}

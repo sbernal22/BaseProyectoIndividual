@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Quantum</title>
+    <title>Quantum Wheel</title>
 </head>
 <body>
     <header>
@@ -12,22 +12,25 @@
             <details>
                 <summary id="menu">Menú</summary>
                 <ul>
-                    <li><a href="#art1">Articulo 1</a></li>
-                    <li><a href="#art2">Articulo 2</a></li>
-                    <li><a href="#art3">Articulo 3</a></li>
-                    <li><a href="#art4">Articulo 4</a></li>
+                    <li class="menu"><a href="#art1">Articulo 1</a></li>
+                    <li class="menu"><a href="#art2">Articulo 2</a></li>
+                    <li class="menu"><a href="#art3">Articulo 3</a></li>
+                    <li class="menu"><a href="#art4">Articulo 4</a></li>
                 </ul>
             </details>
         </nav>
-        <div>
-            <h2>Quantum</h2>
+        <div class="nombre_logo">
+            <div id="logo"><img src="images/logo.png" height="40px" width="40px"></div>
+            <div><h2>Quantum Wheel</h2></div>
         </div>
-        <div>
-            <button type="button" class="inicio_registro"><a href="registro.html" class="registro_inicio">Registrarse</a></button>
-            <button type="button" class="inicio_registro"><a href="inicioSesion.html" class="registro_inicio">Iniciar sesion</a></button>
-        </div>
+        <nav class="laterales">
+            <ul id="laterales">
+                <li class="itemsLaterales"><a href="registro.html">Registrarse</a></li>
+                <li class="itemsLaterales"><a href="inicioSesion.html">Iniciar sesión</a></li>
+                <li class="itemsLaterales"><a href="#">Mi carrito</a></li>
+            </ul>
+        </nav>
     </header>
-    <hr>
     
     <main>
         <h3 id="inicio">Una tienda online de articulos tecnológicos</h3>
@@ -41,101 +44,103 @@
             </ul>
         <h2><strong>Lo más vendido:</strong></h2>
         <!-- Articulo 1 -->
-        <article id="art1">
-            <h3><strong>Laptop Lenovo</strong></h3>
-            <table border="1">
-                <tr>
-                    <th>Precio</th>
-                    <th>S/. 2500</th>
-                </tr> 
-                <tr>
-                    <th>Stock</th>
-                    <th>5 unidades</th>
-                </tr>
-                <tr>
-                    <th>Tiempo de entrega</th>
-                    <th>7 días</th>
-                </tr>
-            </table>
-            <figure>
-                <img src="https://p1-ofp.static.pub/fes/cms/2021/12/17/ephit8bi4waypyhk5ayf20s55uhtf3918030.png" alt="Laptop Lenovo" width="300" height="250">
-                <figcaption>Imagen de la laptop Lenovo</figcaption>
-            </figure>
-            <button type="button">Comprar</button>
-        </article>
-        <hr>
-        <!-- Articulo 2 -->
-        <article id="art2">
-            <h3><strong>Smartphone Honor 400</strong></h3>
-            <table border="1">
-                <tr>
-                    <th>Precio</th>
-                    <th>S/. 1500</th>
-                </tr> 
-                <tr>
-                    <th>Stock</th>
-                    <th>20 unidades</th>
-                </tr>
-                <tr>
-                    <th>Tiempo de entrega</th>
-                    <th>1 día</th>
-                </tr>
-            </table>
-            <figure>
-                <img src="images/honor.jpg" alt="Smartphone Honor" width="280" height="300">
-                <figcaption>Imagen del smartphone Honor</figcaption>
-            </figure>
-            <button type="button">Comprar</button>
-        </article>
-        <hr>
+        <section>
+            <article id="art1">
+                <h3><strong>Laptop Lenovo</strong></h3>
+                <table border="1">
+                    <tr>
+                        <th>Precio</th>
+                        <th>S/. 2500</th>
+                    </tr> 
+                    <tr>
+                        <th>Stock</th>
+                        <th>5 unidades</th>
+                    </tr>
+                    <tr>
+                        <th>Tiempo de entrega</th>
+                        <th>7 días</th>
+                    </tr>
+                </table>
+                <figure>
+                    <img src="https://p1-ofp.static.pub/fes/cms/2021/12/17/ephit8bi4waypyhk5ayf20s55uhtf3918030.png" alt="Laptop Lenovo" width="300" height="250">
+                    <figcaption>Imagen de la laptop Lenovo</figcaption>
+                </figure>
+                <button type="button">Comprar</button>
+            </article>
+            <hr>
+            <!-- Articulo 2 -->
+            <article id="art2">
+                <h3><strong>Smartphone Honor 400</strong></h3>
+                <table border="1">
+                    <tr>
+                        <th>Precio</th>
+                        <th>S/. 1500</th>
+                    </tr> 
+                    <tr>
+                        <th>Stock</th>
+                        <th>20 unidades</th>
+                    </tr>
+                    <tr>
+                        <th>Tiempo de entrega</th>
+                        <th>1 día</th>
+                    </tr>
+                </table>
+                <figure>
+                    <img src="images/honor.jpg" alt="Smartphone Honor" width="280" height="300">
+                    <figcaption>Imagen del smartphone Honor</figcaption>
+                </figure>
+                <button type="button">Comprar</button>
+            </article>
+            <hr>
 
-        <!-- Articulo 3 -->
-        <article id="art3">
-            <h3><strong>Smartwatch impermeable</strong></h3>
-            <table border="1">
-                <tr>
-                    <th>Precio</th>
-                    <th>S/. 500</th>
-                </tr> 
-                <tr>
-                    <th>Stock</th>
-                    <th>Agotado</th>
-                </tr>
-                <tr>
-                    <th>Tiempo de entrega</th>
-                    <th>1 día</th>
-                </tr>
-            </table>
-            <figure>
-                <img src="https://i5.walmartimages.com/seo/Smart-Watch-Fits-for-Android-and-iPhone-EEEkit-Fitness-Health-Tracker-Waterproof-Smartwatch-for-Women-Men_819cb65b-8437-4eb3-aba1-ce6513dc8d58.312f5775b50ab18c130fe5a454149fa9.jpeg" alt="Smartwatch" width="300" height="300">
-                <figcaption>Imagen del Smartwatch</figcaption>
-            </figure>
-            <button type="button">Comprar</button>
-        </article>
-        <hr>
-        <!-- Articulo 3 -->
-        <article id="art4">
-            <h3><strong>Tablet Samsung Galaxy</strong></h3>
-            <table border="1">
-                <tr>
-                    <th>Precio</th>
-                    <th>S/. 1000</th>
-                </tr> 
-                <tr>
-                    <th>Stock</th>
-                    <th>6 unidades</th>
-                </tr>
-                <tr>
-                    <th>Tiempo de entrega</th>
-                    <th>2 días</th>
-                </tr>
-            </table>
-            <figure>        
-            <img src="https://media.falabella.com/falabellaPE/129061914_01/w=1500,h=1500,fit=pad" alt="Tablet Samsung" width="300" height="300">
-            <figcaption>Imagen de la tablet</figcaption>
-            </figure>
-            <button type="button">Comprar</button>
-        </article>
+            <!-- Articulo 3 -->
+            <article id="art3">
+                <h3><strong>Smartwatch impermeable</strong></h3>
+                <table border="1">
+                    <tr>
+                        <th>Precio</th>
+                        <th>S/. 500</th>
+                    </tr> 
+                    <tr>
+                        <th>Stock</th>
+                        <th>Agotado</th>
+                    </tr>
+                    <tr>
+                        <th>Tiempo de entrega</th>
+                        <th>1 día</th>
+                    </tr>
+                </table>
+                <figure>
+                    <img src="https://i5.walmartimages.com/seo/Smart-Watch-Fits-for-Android-and-iPhone-EEEkit-Fitness-Health-Tracker-Waterproof-Smartwatch-for-Women-Men_819cb65b-8437-4eb3-aba1-ce6513dc8d58.312f5775b50ab18c130fe5a454149fa9.jpeg" alt="Smartwatch" width="300" height="300">
+                    <figcaption>Imagen del Smartwatch</figcaption>
+                </figure>
+                <button type="button">Comprar</button>
+            </article>
+            <hr>
+            <!-- Articulo 3 -->
+            <article id="art4">
+                <h3><strong>Tablet Samsung Galaxy</strong></h3>
+                <table border="1">
+                    <tr>
+                        <th>Precio</th>
+                        <th>S/. 1000</th>
+                    </tr> 
+                    <tr>
+                        <th>Stock</th>
+                        <th>6 unidades</th>
+                    </tr>
+                    <tr>
+                        <th>Tiempo de entrega</th>
+                        <th>2 días</th>
+                    </tr>
+                </table>
+                <figure>        
+                <img src="https://media.falabella.com/falabellaPE/129061914_01/w=1500,h=1500,fit=pad" alt="Tablet Samsung" width="300" height="300">
+                <figcaption>Imagen de la tablet</figcaption>
+                </figure>
+                <button type="button">Comprar</button>
+            </article>
+        </section>
         <hr>
         <a href="contacto.html">Ir a contactos</a>
         <div>
@@ -143,9 +148,8 @@
         </div>
         
     </main>
-    <hr>
     <footer>
-        <p id="ultimoParrafo"> &copy; 2025 Mi pagina web individual</p>
+        <p id="ultimoParrafo"> &copy; 2025 Quantum Wheel. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
