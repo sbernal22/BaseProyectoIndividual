@@ -10,14 +10,20 @@ header{
     justify-content: space-around;
     margin: 0;
     position: sticky;
-    background-color: red;
+    background-color: black;
     top: 0;
+    color: white;
 }
 
 nav{
     padding-top: 15px;
 }
-
+h2 a{
+    color: white;
+}
+h2 a:hover{
+    color: white;
+}
 summary{
     cursor: pointer;
     font-size: 24px;
@@ -62,21 +68,32 @@ ul{
     margin-right: 5px;
 }
 #menu::before {
-  content: '☰ '; /* Icono hamburguesa */
+  content: '☰ ';
   margin-right: 5px;
 }
 
 main{
     margin: 10px;
 }
+.hero{
+    text-align: center;
+    background-color: lime;
+    padding: 17%;
+    margin: 0;
+}
+.hero h2{
+    font-size: 45px;
+    font-weight: bolder;
+    text-decoration: none;
+}
 
 h2{text-decoration: underline}
 
 h3::before{content: ">>>"}
 
-a{
+li a{
     text-decoration: none;
-    color: blue;
+    color: white;
 }
 
 a:hover{color: lightblue}
@@ -145,6 +162,28 @@ button:active{background-color: gray}
 
 #ultimoParrafo{text-align: center}
 
+legend{
+    font-size: 24px;
+    font-weight: bolder;
+}
+fieldset{
+    border: 5px dashed black;
+}
+#correo{
+    width: 175px;
+}
+
+button{
+    background-color: rgb(0, 179, 0);
+    color: rgb(244, 244, 244);
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px gray;
+    padding: 10px;
+    margin: 10px;
+}
+button:hover{
+    cursor: pointer;
+}
 footer{
     background-color: black;
     color: white;
