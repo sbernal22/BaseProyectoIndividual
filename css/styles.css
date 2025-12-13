@@ -42,7 +42,9 @@ summary{
     display: flex;
     align-items: center;
 }
-
+#nombrePagina{
+    text-decoration: none;
+}
 #logo{
     padding: 15px;
     padding-bottom: 5px;
@@ -278,19 +280,46 @@ button:active{
     text-align: center;
     margin: 0;
 }
-
-legend{
-    font-size: 24px;
-    font-weight: bolder;
+form{
+    max-width: 400px;
+    background-color: #fff;
+    margin: auto;
+    padding:20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-fieldset{
-    border: 5px dashed black;
-    padding: 20px;
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: white;
-    border-radius: 10px;
+.tituloForm{
+    text-decoration: none;
+    text-align: center;
+}
+label{
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+input[type="radio"] + label {
+    display: inline;
+    font-weight: normal;
+    margin-top: 0;
+    margin-left: 5px;
+}
+input, .btnRegIni{
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+.btnRegIni{
+    padding: 5px;
+    margin-bottom: 10px;
+}
+#btnRestablecer{
+    background-color: rgb(218, 60, 60);
+}
+#btnRestablecer:hover{
+    background-color: red;
+}
+input:focus{
+    outline: none;
 }
 
 fieldset input{

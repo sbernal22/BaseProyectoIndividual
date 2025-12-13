@@ -9,11 +9,12 @@
 <body>
     <header>
         <div class="nombre_logo">
-            <div id="logo"><img src="images/logo.png" height="40px" width="40px"></div>
-            <div><h2><a href="index.html">Quantum Wheel</a></h2></div>
+            <div id="logo"><a href="index.html"><img src="images/logo.png" height="40px" width="40px"></a></div>
+            <div><h2 id="nombrePagina"><a href="index.html">Quantum Wheel</a></h2></div>
         </div>
         <nav class="laterales">
             <ul id="laterales">
+                <li class="itemsLaterales"><a href="index.html">Ir a inicio</a></li>
                 <li class="itemsLaterales"><a href="registro.html">Registrarse</a></li>
                 <li class="itemsLaterales"><a href="inicioSesion.html">Iniciar sesión</a></li>
                 <li class="itemsLaterales"><a href="carrito.html">Mi carrito</a></li>
@@ -22,21 +23,20 @@
     </header>
     <main>
         <form>
-            <fieldset>
-                <legend>Inicio de sesión</legend>
+                <h2 class="tituloForm">Inicio de sesión</h2>
                 <label for="nombres">Correo</label>
-                <input type="email" id="correo" name="correo" placeholder="Ingrese su correo electrónico" required>
+                <input type="email" id="correo" name="correo" placeholder="ej: ejemplo@gmail.com" required>
                 <br><br>
                 <label for="contraseña">Contraseña</label>
                 <input type="password" id="contraseña" name="contraseña" placeholder="Ingrese su contraseña" required>
                 <br><br>
-                <button type="submit">Ingresar</button>
-            </fieldset>
+                <button type="submit" class="btnRegIni">Ingresar</button>
         </form>
     </main>
     <hr>
     <footer>
         <p id="ultimoParrafo"> &copy; 2025 Quantum Wheel. Todos los derechos reservados.</p>
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
