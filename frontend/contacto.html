@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Contactos</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <!-- Logo y nombre de mi pagina -->
+            <div class="nombre_logo">
+                <div id="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="Logo Quantum Wheel">
+                    </a>
+                </div>
+                <h2 id="nombrePagina">
+                    <a href="index.html">Quantum Wheel</a>
+                </h2>
+            </div>
+            <nav class="laterales">
+                <ul id="laterales">
+                    <li class="itemsLaterales"><a href="index.html">Inicio</a></li>
+                    <li class="itemsLaterales"><a href="registro.html">Registrarse</a></li>
+                    <li class="itemsLaterales"><a href="inicioSesion.html">Iniciar sesión</a></li>
+                    <li class="itemsLaterales"><a href="carrito.html">🛒 Mi carrito</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <form id="formContacto">
+            <h2 class="tituloForm">Contactame</h2>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+            <br><br>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            <br><br>
+            <button type="submit" class="btnRegIni">Enviar</button>
+        </form>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <!-- Links del footer -->
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="registro.html">Registrarse</a>
+                <a href="inicioSesion.html">Iniciar Sesión</a>
+                <a href="carrito.html">Mi Carrito</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="footer-info">
+                <p><strong>Quantum Wheel</strong> - Tu tienda de confianza</p>
+                <p>📧 sbernal@unsa.edu.pe | 📞 +51 987 654 321</p>
+            </div>
+            <p id="ultimoParrafo">&copy; 2025 Quantum Wheel. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+<script src="scripts.js"></script>
+</body>
+</html>

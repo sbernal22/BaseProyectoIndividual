@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Mensajes</title>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="nombre_logo">
+                <div id="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="Logo Quantum Wheel">
+                    </a>
+                </div>
+                <h2 id="nombrePagina">
+                    <a href="index.html">Quantum Wheel - Admin</a>
+                </h2>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- FORMULARIO DE LOGIN -->
+        <div id="loginAdmin">
+            <form onsubmit="verificarPassword(event)">
+                <h2 class="tituloForm">🔒 Acceso Restringido</h2>
+                <p style="text-align: center; color: #6b7280;">
+                    Solo para administradores
+                </p>
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" placeholder="Ingrese contraseña" required>
+                <br><br>
+                <button type="submit" class="btnRegIni">Entrar</button>
+            </form>
+        </div>
+
+        <!-- MENSAJES (OCULTO HASTA LOGIN) -->
+        <div id="mensajesContainer">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>📬 Mensajes Recibidos</h2>
+                <button onclick="cerrarSesionAdmin()" style="background: #ef4444;">Cerrar Sesión</button>
+            </div>
+            <div id="listaMensajes">Cargando...</div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="registro.html">Registrarse</a>
+                <a href="inicioSesion.html">Iniciar Sesión</a>
+                <a href="carrito.html">Mi Carrito</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+            <div class="footer-info">
+                <p><strong>Quantum Wheel</strong> - Tu tienda de confianza</p>
+                <p>📧 sbernal@unsa.edu.pe | 📞 +51 987 654 321</p>
+            </div>
+            <p id="ultimoParrafo">&copy; 2025 Quantum Wheel. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+<script src="scripts.js"></script>
+</body>
+</html>
