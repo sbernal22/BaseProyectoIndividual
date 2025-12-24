@@ -2,18 +2,55 @@ from wsgiref.simple_server import make_server
 import mysql.connector
 import json
 import hashlib
+import os
+import mimetypes
 
 DB_CONFIG = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': '',
-    'database': 'quantum_wheel'
+    'host': os.environ.get('DB_HOST', 'localhost'),
+    'user': os.environ.get('DB_USER', 'root'),
+    'password': os.environ.get('DB_PASSWORD', ''),
+    'database': os.environ.get('DB_NAME', 'quantum_wheel')
 }
 def conectar_db():
     return mysql.connector.connect(**DB_CONFIG)
+def servir_archivo_estatico(ruta):
+    if ruta == '/' or ruta == '':
+        ruta = '/index.html'
+    archivo_path = os.path.join('frontend', ruta.lstrip('/'))
+    if os.path.exists(archivo_path) and os.path.isfile(archivo_path):
+        with open(archivo_path, 'rb') as f:
+            contenido = f.read()
+        tipo_mime, _ = mimetypes.guess_type(archivo_path)
+        if tipo_mime is None:
+            tipo_mime = 'application/octet-stream'
+        return {
+            'contenido': contenido,
+            'mime': tipo_mime,
+            'encontrado': True
+        }
+    return {'encontrado': False}
 def app(environ, start_response):
     metodo = environ['REQUEST_METHOD']
     ruta = environ['PATH_INFO']
+    rutas_api = ['/registro', '/login', '/productos', '/realizar-compra',
+                 '/mis-pedidos', '/contacto', '/ver-mensajes', '/health']
+    if ruta in rutas_api:
+        return manejar_api(environ, start_response, metodo, ruta)
+    resultado = servir_archivo_estatico(ruta)
+
+    if resultado['encontrado']:
+        headers = [
+            ('Content-Type', resultado['mime']),
+            ('Cache-Control', 'public, max-age=3600')
+        ]
+        start_response('200 OK', headers)
+        return [resultado['contenido']]
+    else:
+        headers = [('Content-Type', 'text/html')]
+        start_response('404 Not Found', headers)
+        return [b'<h1>404 - Pagina no encontrada</h1>']
+
+def manejar_api(environ, start_response, metodo, ruta):
     headers = [
         ('Content-Type', 'application/json'),
         ('Access-Control-Allow-Origin', '*'),
@@ -21,7 +58,6 @@ def app(environ, start_response):
         ('Access-Control-Allow-Headers', 'Content-Type')
     ]
 
-    # Manejar OPTIONS (CORS preflight)
     if metodo == 'OPTIONS':
         start_response('200 OK', headers)
         return [b'']
@@ -50,13 +86,13 @@ def app(environ, start_response):
         respuesta = guardar_mensaje(datos)
     elif ruta == '/ver-mensajes' and metodo == 'GET':
         respuesta = obtener_mensajes()
+    elif ruta == '/health':
+        respuesta = {'status': 'ok', 'message': 'Quantum Wheel API'}
     else:
         respuesta = {'error': 'Ruta no encontrada'}
 
     start_response('200 OK', headers)
     return [json.dumps(respuesta).encode('utf-8')]
-
-
 def registrar_usuario(datos):
     try:
         conn = conectar_db()
@@ -65,14 +101,16 @@ def registrar_usuario(datos):
         password_hash = hashlib.md5(datos['contraseña'].encode()).hexdigest()
 
         sql = """
-                INSERT INTO usuarios (nombres, apellidos, correo, contraseña)
-                VALUES (%s, %s, %s, %s) \
-                """
+              INSERT INTO usuarios (nombres, apellidos, correo, contraseña, fecha_nacimiento, genero)
+              VALUES (%s, %s, %s, %s, %s, %s) \
+              """
         valores = (
             datos['nombres'],
             datos['apellidos'],
             datos['correo'],
             password_hash,
+            datos.get('fecha_nacimiento', '2000-01-01'),
+            datos.get('genero', 'M')
         )
         cursor.execute(sql, valores)
         conn.commit()
@@ -127,9 +165,9 @@ def realizar_compra(datos):
         for item in datos['carrito']:
             total = item['cantidad'] * item['precio']
             sql = """
-                    INSERT INTO pedidos (usuario_id, nombre_producto, cantidad, precio_unitario, total)
-                    VALUES (%s, %s, %s, %s, %s) \
-                    """
+                  INSERT INTO pedidos (usuario_id, nombre_producto, cantidad, precio_unitario, total)
+                  VALUES (%s, %s, %s, %s, %s) \
+                  """
             cursor.execute(sql, (
                 datos['usuario_id'],
                 item['nombre'],
@@ -152,21 +190,18 @@ def obtener_pedidos(datos):
         conn = conectar_db()
         cursor = conn.cursor(dictionary=True)
         sql = """
-                SELECT * \
-                FROM pedidos
-                WHERE usuario_id = %s
-                ORDER BY fecha_pedido DESC \
-                """
+              SELECT *
+              FROM pedidos
+              WHERE usuario_id = %s
+              ORDER BY fecha_pedido DESC \
+              """
         cursor.execute(sql, (datos['usuario_id'],))
         pedidos = cursor.fetchall()
         cursor.close()
         conn.close()
-
         return {'success': True, 'pedidos': pedidos}
     except Exception as e:
         return {'success': False, 'message': str(e)}
-
-
 def guardar_mensaje(datos):
     try:
         conn = conectar_db()
@@ -179,7 +214,6 @@ def guardar_mensaje(datos):
         return {'success': True, 'message': 'Mensaje guardado'}
     except Exception as e:
         return {'success': False, 'message': str(e)}
-
 def obtener_mensajes():
     try:
         conn = conectar_db()
@@ -187,16 +221,18 @@ def obtener_mensajes():
         sql = "SELECT * FROM mensajes ORDER BY fecha DESC"
         cursor.execute(sql)
         mensajes = cursor.fetchall()
-        for m in mensajes:
-            if 'fecha' in m and m['fecha'] is not None:
-                m['fecha'] = m['fecha'].strftime("%Y-%m-%d %H:%M:%S")
         cursor.close()
         conn.close()
+        for mensaje in mensajes:
+            if 'fecha' in mensaje:
+                mensaje['fecha'] = str(mensaje['fecha'])
         return {'success': True, 'mensajes': mensajes}
     except Exception as e:
         return {'success': False, 'message': str(e)}
 if __name__ == '__main__':
-    puerto = 8000
-    print(f"Servidor iniciado en http://localhost:{puerto}")
-    servidor = make_server('localhost', puerto, app)
+    puerto = int(os.environ.get('PORT', 8000))
+    print(f"Servidor Quantum Wheel iniciado en puerto {puerto}")
+    print(f"Frontend: http://0.0.0.0:{puerto}/")
+    print(f"API: http://0.0.0.0:{puerto}/health")
+    servidor = make_server('0.0.0.0', puerto, app)
     servidor.serve_forever()
