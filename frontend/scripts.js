@@ -103,7 +103,7 @@ function validarFormularioRegistro() {
             nombres: document.getElementById('nombres').value.trim(),
             apellidos: document.getElementById('apellidos').value.trim(),
             correo: document.getElementById('correo').value.trim(),
-            contraseña: document.getElementById('contraseña').value,
+            contraseña: document.getElementById('contrasenia').value,
         };
         if (!datos.nombres || !datos.apellidos) {
             alert('Completa tu nombre y apellidos');
@@ -115,10 +115,6 @@ function validarFormularioRegistro() {
         }
         if (datos.contraseña !== document.getElementById('confirmar').value) {
             alert('Las contraseñas no coinciden');
-            return;
-        }
-        if (!datos.genero) {
-            alert('Selecciona tu género');
             return;
         }
         const respuesta = await hacerPeticion('/registro', datos);
@@ -342,7 +338,7 @@ function verificarPassword(event) {
         localStorage.setItem('adminLogueado', 'true');
         mostrarMensajes();
     } else {
-        alert('❌ Contraseña incorrecta');
+        alert('Contraseña incorrecta');
         document.getElementById('password').value = '';
     }
 }

@@ -97,9 +97,7 @@ def registrar_usuario(datos):
     try:
         conn = conectar_db()
         cursor = conn.cursor()
-
         password_hash = hashlib.md5(datos['contraseña'].encode()).hexdigest()
-
         sql = """
               INSERT INTO usuarios (nombres, apellidos, correo, contraseña)
               VALUES (%s, %s, %s, %s) \
