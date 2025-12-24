@@ -3,10 +3,10 @@
 ## 📝 Descripción
 Quantum Wheel es una tienda online de productos tecnológicos que permite a los usuarios navegar por un catálogo de productos, registrarse, iniciar sesión, agregar productos al carrito y realizar compras. Incluye un sistema de administración para gestionar mensajes de contacto.
 
-## 🌐 URL del Proyecto
+## URL del Proyecto
 [https://baseproyectoindividual.onrender.com/](https://baseproyectoindividual.onrender.com/)
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 ### Frontend
 - **HTML5** - Estructura de las páginas web
@@ -25,7 +25,7 @@ Quantum Wheel es una tienda online de productos tecnológicos que permite a los 
 - Python
 - SQL
 
-## 📂 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 quantum-wheel/
@@ -48,7 +48,7 @@ quantum-wheel/
     └── Database.sql            # Estructura de la base de datos
 ```
 
-## ✨ Funcionalidades
+## Funcionalidades
 
 ### Para Usuarios
 - ✅ **Catálogo de productos** organizados por categorías (Laptops, Smartphones, Tablets, Smartwatches)
@@ -63,7 +63,7 @@ quantum-wheel/
 - ✅ **Visualización de mensajes** de usuarios
 - ✅ **Gestión de inventario** automática
 
-## 🗄️ Base de Datos
+## Base de Datos
 
 ### Tablas
 - **usuarios** - Información de usuarios registrados
@@ -77,7 +77,7 @@ usuarios (1) ──→ (N) pedidos
 productos (1) ──→ (N) pedidos
 ```
 
-## 🔧 Instalación Local
+## Instalación Local
 
 ### Requisitos Previos
 - Python 3.8+
