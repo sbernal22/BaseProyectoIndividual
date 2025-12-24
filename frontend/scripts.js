@@ -1,4 +1,4 @@
-const API_URL = 'https://quantum-wheel-api.onrender.com';
+const API_URL = 'https://baseproyectoindividual.onrender.com/';
 const PASSWORD_CORRECTA = 'admin123';
 
 
