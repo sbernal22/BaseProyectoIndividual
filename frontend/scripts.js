@@ -104,8 +104,6 @@ function validarFormularioRegistro() {
             apellidos: document.getElementById('apellidos').value.trim(),
             correo: document.getElementById('correo').value.trim(),
             contraseña: document.getElementById('contraseña').value,
-            fecha_nacimiento: document.getElementById('fecha').value,
-            genero: document.querySelector('input[name="genero"]:checked')?.value
         };
         if (!datos.nombres || !datos.apellidos) {
             alert('Completa tu nombre y apellidos');

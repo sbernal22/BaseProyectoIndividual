@@ -101,16 +101,14 @@ def registrar_usuario(datos):
         password_hash = hashlib.md5(datos['contraseña'].encode()).hexdigest()
 
         sql = """
-              INSERT INTO usuarios (nombres, apellidos, correo, contraseña, fecha_nacimiento, genero)
-              VALUES (%s, %s, %s, %s, %s, %s) \
+              INSERT INTO usuarios (nombres, apellidos, correo, contraseña)
+              VALUES (%s, %s, %s, %s) \
               """
         valores = (
             datos['nombres'],
             datos['apellidos'],
             datos['correo'],
             password_hash,
-            datos.get('fecha_nacimiento', '2000-01-01'),
-            datos.get('genero', 'M')
         )
         cursor.execute(sql, valores)
         conn.commit()
