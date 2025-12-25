@@ -8,6 +8,7 @@ import mimetypes
 DB_CONFIG = {
     'host': os.environ.get('DB_HOST', 'localhost'),
     'user': os.environ.get('DB_USER', 'root'),
+    'port': int(os.environ.get('DB_PORT', 3306)),
     'password': os.environ.get('DB_PASSWORD', ''),
     'database': os.environ.get('DB_NAME', 'quantum_wheel')
 }

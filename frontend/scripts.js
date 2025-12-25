@@ -48,11 +48,9 @@ async function hacerPeticion(ruta, datos = null) {
             method: datos ? 'POST' : 'GET',
             headers: { 'Content-Type': 'application/json' }
         };
-
         if (datos) {
             opciones.body = JSON.stringify(datos);
         }
-
         const respuesta = await fetch(API_URL + ruta, opciones);
         return await respuesta.json();
     } catch (error) {
