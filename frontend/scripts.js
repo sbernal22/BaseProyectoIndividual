@@ -132,7 +132,7 @@ function validarFormularioInicioSesion() {
         e.preventDefault();
         const datos = {
             correo: document.getElementById('correo').value.trim(),
-            contraseña: document.getElementById('contraseña').value
+            contraseña: document.getElementById('contrasenia').value
         };
 
         if (!datos.correo || !datos.contraseña) {
