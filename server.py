@@ -112,13 +112,22 @@ def registrar_usuario(datos):
         cursor.execute(sql, valores)
         conn.commit()
         user_id = cursor.lastrowid
-        cursor.close()
-        conn.close()
         return {'success': True, 'message': 'Registro exitoso', 'user_id': user_id}
     except mysql.connector.IntegrityError:
         return {'success': False, 'message': 'El correo ya está registrado'}
     except Exception as e:
         return {'success': False, 'message': str(e)}
+    finally:
+        if cursor:
+            try:
+                cursor.close()
+            except:
+                pass
+        if conn:
+            try:
+                conn.close()
+            except:
+                pass
 def login_usuario(datos):
     try:
         conn = conectar_db()
@@ -127,8 +136,6 @@ def login_usuario(datos):
         sql = "SELECT * FROM usuarios WHERE correo = %s AND contraseña = %s"
         cursor.execute(sql, (datos['correo'], password_hash))
         usuario = cursor.fetchone()
-        cursor.close()
-        conn.close()
         if usuario:
             return {
                 'success': True,
@@ -143,6 +150,17 @@ def login_usuario(datos):
             return {'success': False, 'message': 'Credenciales incorrectas'}
     except Exception as e:
         return {'success': False, 'message': str(e)}
+    finally:
+        if cursor:
+            try:
+                cursor.close()
+            except:
+                pass
+        if conn:
+            try:
+                conn.close()
+            except:
+                pass
 def obtener_productos():
     try:
         conn = conectar_db()
@@ -150,11 +168,20 @@ def obtener_productos():
         query = "SELECT * FROM productos WHERE stock > 0"
         cursor.execute(query)
         productos = cursor.fetchall()
-        cursor.close()
-        conn.close()
         return {'success': True, 'productos': productos}
     except Exception as e:
         return {'success': False, 'message': str(e)}
+    finally:
+        if cursor:
+            try:
+                cursor.close()
+            except:
+                pass
+        if conn:
+            try:
+                conn.close()
+            except:
+                pass
 def realizar_compra(datos):
     try:
         conn = conectar_db()
@@ -177,11 +204,20 @@ def realizar_compra(datos):
                 (item['cantidad'], item['nombre'])
             )
         conn.commit()
-        cursor.close()
-        conn.close()
         return {'success': True, 'message': 'Compra realizada exitosamente'}
     except Exception as e:
         return {'success': False, 'message': str(e)}
+    finally:
+        if cursor:
+            try:
+                cursor.close()
+            except:
+                pass
+        if conn:
+            try:
+                conn.close()
+            except:
+                pass
 def obtener_pedidos(datos):
     try:
         conn = conectar_db()
@@ -194,11 +230,20 @@ def obtener_pedidos(datos):
               """
         cursor.execute(sql, (datos['usuario_id'],))
         pedidos = cursor.fetchall()
-        cursor.close()
-        conn.close()
         return {'success': True, 'pedidos': pedidos}
     except Exception as e:
         return {'success': False, 'message': str(e)}
+    finally:
+        if cursor:
+            try:
+                cursor.close()
+            except:
+                pass
+        if conn:
+            try:
+                conn.close()
+            except:
+                pass
 def guardar_mensaje(datos):
     try:
         conn = conectar_db()
@@ -206,11 +251,20 @@ def guardar_mensaje(datos):
         sql = "INSERT INTO mensajes (nombre, email, mensaje) VALUES (%s, %s, %s)"
         cursor.execute(sql, (datos['nombre'], datos['email'], datos['mensaje']))
         conn.commit()
-        cursor.close()
-        conn.close()
         return {'success': True, 'message': 'Mensaje guardado'}
     except Exception as e:
         return {'success': False, 'message': str(e)}
+    finally:
+        if cursor:
+            try:
+                cursor.close()
+            except:
+                pass
+        if conn:
+            try:
+                conn.close()
+            except:
+                pass
 def obtener_mensajes():
     try:
         conn = conectar_db()
@@ -218,14 +272,23 @@ def obtener_mensajes():
         sql = "SELECT * FROM mensajes ORDER BY fecha DESC"
         cursor.execute(sql)
         mensajes = cursor.fetchall()
-        cursor.close()
-        conn.close()
         for mensaje in mensajes:
             if 'fecha' in mensaje:
                 mensaje['fecha'] = str(mensaje['fecha'])
         return {'success': True, 'mensajes': mensajes}
     except Exception as e:
         return {'success': False, 'message': str(e)}
+    finally:
+        if cursor:
+            try:
+                cursor.close()
+            except:
+                pass
+        if conn:
+            try:
+                conn.close()
+            except:
+                pass
 if __name__ == '__main__':
     puerto = int(os.environ.get('PORT', 8000))
     print(f"Servidor Quantum Wheel iniciado en puerto {puerto}")
