@@ -95,6 +95,8 @@ def manejar_api(environ, start_response, metodo, ruta):
     start_response('200 OK', headers)
     return [json.dumps(respuesta).encode('utf-8')]
 def registrar_usuario(datos):
+    conn = None
+    cursor = None
     try:
         conn = conectar_db()
         cursor = conn.cursor()
@@ -118,17 +120,19 @@ def registrar_usuario(datos):
     except Exception as e:
         return {'success': False, 'message': str(e)}
     finally:
-        if cursor:
+        if cursor is not None:
             try:
                 cursor.close()
             except:
                 pass
-        if conn:
+        if conn is not None:
             try:
                 conn.close()
             except:
                 pass
 def login_usuario(datos):
+    conn = None
+    cursor = None
     try:
         conn = conectar_db()
         cursor = conn.cursor(dictionary=True)
@@ -151,17 +155,19 @@ def login_usuario(datos):
     except Exception as e:
         return {'success': False, 'message': str(e)}
     finally:
-        if cursor:
+        if cursor is not None:
             try:
                 cursor.close()
             except:
                 pass
-        if conn:
+        if conn is not None:
             try:
                 conn.close()
             except:
                 pass
 def obtener_productos():
+    conn = None
+    cursor = None
     try:
         conn = conectar_db()
         cursor = conn.cursor(dictionary=True)
@@ -172,17 +178,19 @@ def obtener_productos():
     except Exception as e:
         return {'success': False, 'message': str(e)}
     finally:
-        if cursor:
+        if cursor is not None:
             try:
                 cursor.close()
             except:
                 pass
-        if conn:
+        if conn is not None:
             try:
                 conn.close()
             except:
                 pass
 def realizar_compra(datos):
+    conn = None
+    cursor = None
     try:
         conn = conectar_db()
         cursor = conn.cursor()
@@ -208,17 +216,19 @@ def realizar_compra(datos):
     except Exception as e:
         return {'success': False, 'message': str(e)}
     finally:
-        if cursor:
+        if cursor is not None:
             try:
                 cursor.close()
             except:
                 pass
-        if conn:
+        if conn is not None:
             try:
                 conn.close()
             except:
                 pass
 def obtener_pedidos(datos):
+    conn = None
+    cursor = None
     try:
         conn = conectar_db()
         cursor = conn.cursor(dictionary=True)
@@ -234,17 +244,19 @@ def obtener_pedidos(datos):
     except Exception as e:
         return {'success': False, 'message': str(e)}
     finally:
-        if cursor:
+        if cursor is not None:
             try:
                 cursor.close()
             except:
                 pass
-        if conn:
+        if conn is not None:
             try:
                 conn.close()
             except:
                 pass
 def guardar_mensaje(datos):
+    conn = None
+    cursor = None
     try:
         conn = conectar_db()
         cursor = conn.cursor()
@@ -255,17 +267,19 @@ def guardar_mensaje(datos):
     except Exception as e:
         return {'success': False, 'message': str(e)}
     finally:
-        if cursor:
+        if cursor is not None:
             try:
                 cursor.close()
             except:
                 pass
-        if conn:
+        if conn is not None:
             try:
                 conn.close()
             except:
                 pass
 def obtener_mensajes():
+    conn = None
+    cursor = None
     try:
         conn = conectar_db()
         cursor = conn.cursor(dictionary=True)
@@ -279,12 +293,12 @@ def obtener_mensajes():
     except Exception as e:
         return {'success': False, 'message': str(e)}
     finally:
-        if cursor:
+        if cursor is not None:
             try:
                 cursor.close()
             except:
                 pass
-        if conn:
+        if conn is not None:
             try:
                 conn.close()
             except:
